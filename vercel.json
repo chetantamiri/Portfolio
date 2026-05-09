@@ -1,11 +1,5 @@
 {
-  "git": {
-    "deploymentEnabled": {
-      "Portfolio": true
-    }
-  },
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "framework": "vite",
-  "rootDirectory": "Portfolio"
+  "framework": "vite"
 }
