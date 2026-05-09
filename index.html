@@ -559,7 +559,7 @@
     <li><a href="#projects">Projects</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="resume.pdf" target="_blank" class="nav-resume">Resume</a></li>
+    <li><a href="resume.pdf" target="_blank" class="nav-resume" id="desktopResume">Resume</a></li>
   </ul>
   <div class="nav-actions">
     <button class="theme-toggle" id="themeBtn" aria-label="Toggle theme">☀</button>
@@ -577,7 +577,7 @@
   <a href="#projects" onclick="closeMobile()">Projects</a>
   <a href="#education" onclick="closeMobile()">Education</a>
   <a href="#contact" onclick="closeMobile()">Contact</a>
-  <a href="resume.pdf" target="_blank" onclick="closeMobile()" class="mobile-resume">Resume</a>
+  <a href="resume.pdf" target="_blank" onclick="closeMobile()" class="mobile-resume" id="mobileResume">Resume</a>
 </div>
 
 <!-- HERO -->
@@ -870,11 +870,15 @@
   // ── THEME TOGGLE ──
   const themeBtn = document.getElementById('themeBtn');
   const html = document.documentElement;
-  let dark = true;
+  let saved = localStorage.getItem('theme');
+  let dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  html.setAttribute('data-theme', dark ? 'dark' : 'light');
+  themeBtn.textContent = dark ? '☀' : '☾';
   themeBtn.addEventListener('click', () => {
     dark = !dark;
     html.setAttribute('data-theme', dark ? 'dark' : 'light');
     themeBtn.textContent = dark ? '☀' : '☾';
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
   });
 
   // ── HAMBURGER ──
@@ -901,6 +905,11 @@
     entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); } });
   }, { threshold: 0.12 });
   reveals.forEach(el => observer.observe(el));
+
+  // ── RESUME PATH ──
+  const resumePath = 'resume.pdf';
+  document.getElementById('desktopResume').href = resumePath;
+  document.getElementById('mobileResume').href = resumePath;
 
   // ── CURSOR DOT ──
   const cursor = document.getElementById('cursor');
