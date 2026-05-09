@@ -130,6 +130,13 @@
   }
   .nav-links a:hover { color: var(--text); }
   .nav-links a:hover::after { width: 100%; }
+  .nav-resume {
+    background: var(--accent); color: #fff !important; padding: 8px 20px;
+    border-radius: 10px; font-weight: 600 !important; letter-spacing: 0.02em;
+    transition: all 0.3s;
+  }
+  .nav-resume:hover { background: #2563eb; transform: translateY(-2px); box-shadow: 0 4px 15px var(--accent-glow); }
+  .nav-resume::after { display: none !important; }
 
   .nav-actions { display: flex; align-items: center; gap: 16px; }
   .theme-toggle {
@@ -493,7 +500,6 @@
     .hero-cta { flex-direction: column; width: 100%; }
     .btn-primary, .btn-outline { width: 100%; justify-content: center; padding: 14px 24px; }
     
-    .about-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
     .about-stats { grid-template-columns: 1fr 1fr; gap: 12px; }
     .stat-box { padding: 24px; }
     .stat-box .num { font-size: 2.5rem; }
@@ -507,16 +513,7 @@
     .edu-item { flex-direction: column; align-items: flex-start; gap: 12px; }
     .edu-gpa { text-align: left; font-size: 1.5rem; }
     
-    .contact-email { font-size: clamp(1.2rem, 7vw, 2rem); word-break: break-word; hyphens: auto; }
-    .contact-links { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; max-width: 400px; }
-    .contact-link {
-      flex-direction: column; gap: 8px; padding: 20px 16px;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; text-align: center; font-size: 0.85rem;
-      transition: all 0.3s;
-    }
-    .contact-link svg { width: 24px; height: 24px; }
-    .contact-link:hover { border-color: var(--accent); background: var(--accent-glow); transform: translateY(-2px); }
+    .contact-email { font-size: clamp(1rem, 5vw, 1.5rem); }
     
     .card-premium { border-radius: 16px; }
 
@@ -548,7 +545,7 @@
 <nav>
   <a href="#hero" class="nav-brand">
     <img src="profile.jpeg" alt="Chetan Anand" class="nav-avatar">
-    <span class="nav-logo">Chetan<span>.</span></span>
+    <span class="nav-logo">Chetan Anand<span>.</span></span>
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
@@ -557,6 +554,7 @@
     <li><a href="#projects">Projects</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="/resume.pdf" target="_blank" class="nav-resume">Resume</a></li>
   </ul>
   <div class="nav-actions">
     <button class="theme-toggle" id="themeBtn" aria-label="Toggle theme">☀</button>
@@ -574,6 +572,7 @@
   <a href="#projects" onclick="closeMobile()">Projects</a>
   <a href="#education" onclick="closeMobile()">Education</a>
   <a href="#contact" onclick="closeMobile()">Contact</a>
+  <a href="/resume.pdf" target="_blank" onclick="closeMobile()" style="background:var(--accent);color:#fff;font-weight:600;">Resume</a>
 </div>
 
 <!-- HERO -->
@@ -609,7 +608,7 @@
   <h2 class="section-title reveal">Who I am</h2>
   <div class="about-grid">
     <div class="about-text reveal reveal-delay-1">
-      <p>I'm a <strong>Motivated Information Technology student</strong> with hands-on experience developing and managing web-based applications — from responsive UIs to backend APIs.</p>
+      <p>I'm a <strong>Motivated Information Technology student</strong> with hands-on experience developing and managing web-based applications — from responsive UIs to backend APIs. I also take up <strong>freelance projects</strong> and have successfully shipped <strong>1 project</strong> for a client end-to-end.</p>
       <p>Skilled in <strong>communication, workflow management, problem-solving, and team collaboration</strong>, I thrive in Agile and startup-driven environments. Interested in Business Analysis, Operations, and full-cycle product development.</p>
       <p>When I'm not building, I'm exploring how AI tools and modern workflows can make teams more productive and product development more intentional.</p>
     </div>
@@ -776,18 +775,7 @@
       </a>
     </div>
 
-    <div class="project-card card-premium reveal reveal-delay-3">
-      <div class="project-num">Portfolio</div>
-      <a href="https://github.com/chetantamiri/Portfolio" target="_blank" rel="noopener" class="project-name">Personal Developer Portfolio</a>
-      <div class="project-desc">A premium, minimal single-page site with dark/light mode toggle and scroll animations. Showcasing modern web design best practices.</div>
-      <div class="project-tags">
-        <span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span><span class="skill-tag">Vite</span>
-      </div>
-      <a class="project-link" href="https://github.com/chetantamiri/Portfolio" target="_blank" rel="noopener">
-        View Source Code
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H5M11 1V7"/></svg>
-      </a>
-    </div>
+    
 
   </div>
 </section>
